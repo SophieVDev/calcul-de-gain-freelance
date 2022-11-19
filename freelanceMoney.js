@@ -49,13 +49,16 @@ function CalculGain() {
 
 async function animateCompteur(idARemplacer, total) {
   let cpt = 0;
-  let animationDuration = 70;
+  let animationDuration = 70; //70 miliseconde d'animation
   let monElementHtmlDeResultat = document.getElementById(idARemplacer);
   //total c'est 140
   //compter 140 en 1000 ms
 
+  //fait mon compteur si le contenu de ma balise HTML est différent. Les chiffres change seulement si le chiffre change. il ne demarre pas à zéro à chaque calcul
   if (monElementHtmlDeResultat.innerText != total.toFixed(2) + " €") {
+    //mon incrémentets mon total /10. Ca calcul de 10 en 10 ou de 100 en 100 pour arriver au résultat
     let increment = Math.round(total / 10);
+    //Incrément = augmente. J'augmente de 1 en 1 avec increment = 1
     if (increment == 0) increment = 1;
     while (cpt <= total) {
       monElementHtmlDeResultat.innerText = cpt.toFixed(2) + " €";
